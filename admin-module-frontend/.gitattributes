@@ -1,3 +1,11 @@
 
-assets/* linguist-vendored
+
+src/assets/* linguist-vendored
+
+## AUTO-DETECT
+* text=auto
+
+## SOURCE CODE
+*.scss     text
+*.css      text
 
