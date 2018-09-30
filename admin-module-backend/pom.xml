@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.aliniribeiro</groupId>
-    <artifactId>pidecor-admin</artifactId>
+    <artifactId>admin-module</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>pidecor-admin</name>
-    <description>Demo project for Spring Boot</description>
+    <name>admin-module</name>
+    <description>Admin Module POC for a E-commerce</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
