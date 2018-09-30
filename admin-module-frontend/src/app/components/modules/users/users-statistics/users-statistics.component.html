@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="header">
+    <h4 class="title">Usuários cadastrados</h4>
+  </div>
+  <hr>
+  <div class="content">
+    <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+    <div class="footer">
+      <div class="chart-legend">
+        <span *ngFor="let profileItem of profileItems">
+          <i class="{{profileItem.class}}"></i> {{profileItem.title}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

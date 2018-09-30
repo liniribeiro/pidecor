@@ -1,0 +1,21 @@
+
+<div class="wrapper" *ngIf="!getShowTemplate()">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="container">
+            <app-login></app-login>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper" *ngIf="getShowTemplate()">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+        <app-menu></app-menu>
+    </div>
+    <div class="main-panel">
+        <app-header></app-header>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</div>

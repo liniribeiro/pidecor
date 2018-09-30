@@ -1,0 +1,206 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/gs-producing-web-service"
+           targetNamespace="http://spring.io/guides/gs-producing-web-service" elementFormDefault="qualified">
+
+    <xs:element name="activateProviderRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string" minOccurs="1"/>
+                <xs:element name="companyname" type="xs:string" minOccurs="1"/>
+                <xs:element name="companyId" type="xs:string" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="activateProviderResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="disableProviderRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string" minOccurs="1"/>
+                <xs:element name="companyname" type="xs:string" minOccurs="1"/>
+                <xs:element name="companyId" type="xs:string" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="disableProviderResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getMyProvidersRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="companyId" type="xs:string" minOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getMyProvidersResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="providers" type="tns:allProviders"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="getAllProvidersRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getAllProvidersResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="providers" type="tns:allProviders"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getProvidersByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getProvidersByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="provider" type="tns:provider"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="allProviders">
+        <xs:sequence>
+            <xs:element name="data" type="tns:provider" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="provider">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="socian_name" type="xs:string"/>
+
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="cnpj" type="xs:string"/>
+            <xs:element name="adress" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="phone" type="xs:string"/>
+            <xs:element name="homepage" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+            <xs:element name="company_type" type="xs:string"/>
+            <xs:element name="annual_billing" type="xs:string"/>
+            <xs:element name="fundation_year" type="xs:int"/>
+            <xs:element name="client_number" type="xs:int"/>
+            <xs:element name="reputation" type="xs:string"/>
+            <xs:element name="category" type="xs:string"/>
+            <xs:element name="items" type="xs:int"/>
+            <xs:element name="percent" type="xs:double"/>
+            <xs:element name="delivery_days" type="xs:int"/>
+            <xs:element name="rejection_rate" type="xs:double"/>
+            <xs:element name="qtd_items_sold" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getItemsByIdRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getItemsByIdResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="tns:item"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="allItems">
+        <xs:sequence>
+            <xs:element name="data" type="tns:item" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="item">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="photolink" type="xs:string"/>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="providerId" type="xs:string"/>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="price" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getAllItemsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getAllItemsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="items" type="tns:allItems"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="order">
+        <xs:sequence>
+            <xs:element name="deliveryReceiverName" type="xs:string"/>
+            <xs:element name="deliveryAddress" type="xs:string"/>
+            <xs:element name="companyname" type="xs:string" minOccurs="1"/>
+            <xs:element name="companyId" type="xs:string" minOccurs="1"/>
+            <xs:element name="items" type="xs:string"/>
+            <xs:element name="status" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="createOrderRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="order" type="tns:order" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="createOrderResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="items" type="tns:allItems"/>
+                <xs:element name="order" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getOrderStatusRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getOrderStatusResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

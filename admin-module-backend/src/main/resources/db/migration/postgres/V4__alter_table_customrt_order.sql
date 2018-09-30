@@ -1,0 +1,1 @@
+ALTER TABLE CUSTOMER_ORDER ADD COLUMN creationdate DATE default null;

@@ -1,0 +1,63 @@
+<div class="card">
+    <div class="header">
+        <h4 class="title">Novo usuário</h4>
+    </div>
+    <hr>
+    <div>
+    </div>
+    <div class="content">
+        <form #form="ngForm" (ngSubmit)="register()" novalidate>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" [(ngModel)]="user.name" class="form-control border-input" name="userName" id="inputUserName" #name="ngModel"
+                            placeholder="Usuário" userName>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" [(ngModel)]="user.email" class="form-control border-input" name="email" id="inputEmail" #email="ngModel"
+                            placeholder="Email" email>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="password" [(ngModel)]="user.password" class="form-control border-input" name="password" id="inputPassword" #password="ngModel"
+                            placeholder="Senha" password>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Perfil</label>
+                        <select [(ngModel)]="user.profile" class="selectpicker form-control border-input" data-style="select-with-transition" title="Single Select"
+                            data-size="7" name="profile" id="inputProfile" #profile="ngModel" required>
+                            <option disabled>Escolha o perfil do usuário</option>
+                            <option value="ROLE_ADMIN">Administrador do sistema</option>
+                            <option value="ROLE_CUSTOMER">Cliente</option>
+                            <option value="ROLE_HELP_DESK">Técnico de atendimento ao cliente</option>
+                            <option value="ROLE_COMERCIAL_ANALYST">Analista comercial</option>
+                            <option value="ROLE_MARKETING_ANALYST">Analista de Marketing</option>
+                        </select>
+                        <span class="help-block" *ngIf="profile.invalid && profile.dirty">Profile is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6  col-sm-12 text-center">
+                <button class="btn btn btn-sm btn-success btn-icon" (click)="clear()"><i class="fa fa-ban"></i>Cancelar</button>
+            </div>
+
+            <div class="col-md-6 col-sm-12 text-center">
+                <button type="submit" [disabled]="!form.valid" class="btn btn-sm btn-success btn-icon" (click)="showNotification('top','right')"><i class="fa fa-plus "></i>Adicionar</button>
+            </div>
+            <div class="clearfix"></div>
+
+        </form>
+
+    </div>
+</div>

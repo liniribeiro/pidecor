@@ -1,0 +1,168 @@
+@media (min-width: 992px){
+    .typo-line{
+        padding-left: 140px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .typo-line .category{
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0px;
+        position: absolute;
+    }
+}
+
+.icon-section {
+	margin: 0 0 3em;
+	clear: both;
+	overflow: hidden;
+}
+.icon-container {
+	width: 240px;
+	padding: .7em 0;
+	float: left;
+	position: relative;
+	text-align: left;
+}
+.icon-container [class^="ti-"],
+.icon-container [class*=" ti-"] {
+	color: #000;
+	position: absolute;
+	margin-top: 3px;
+	transition: .3s;
+    font-size: 1.2em;
+}
+.icon-container:hover [class^="ti-"],
+.icon-container:hover [class*=" ti-"] {
+	font-size: 2.2em;
+	margin-top: -5px;
+}
+.icon-container:hover .icon-name {
+	color: #000;
+}
+.icon-name {
+	color: #aaa;
+	margin-left: 35px;
+	font-size: .8em;
+	transition: .3s;
+}
+.icon-container:hover .icon-name {
+	margin-left: 45px;
+}
+
+.places-buttons .btn{
+    margin-bottom: 30px
+}
+.sidebar .nav > li.active-pro{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+}
+.sidebar .nav > li.active-pro a{
+    background: rgba(255, 255, 255, 0.14);
+    opacity: 1;
+    color: #FFFFFF;
+}
+
+.table-upgrade td:nth-child(2),
+.table-upgrade td:nth-child(3){
+    text-align: center;
+}
+
+.login-logo,
+.register-logo {
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 5px;
+  font-weight: 300;
+}
+
+
+.login-box-msg,
+.register-box-msg {
+  margin: 5px;
+  text-align: center;
+  padding: 0 20px 20px 20px;
+}
+
+.center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+  }
+
+.pi-gray{
+    color: #4d4d4d;
+}
+
+.pi-pink{
+    color: #c27f90;
+}
+
+.thumbnail {
+    display: contents;
+}
+
+.pi-btn-info>btn-info {
+    border-color: #c27f90;
+    color: #c27f90;
+  }
+
+
+  .pi2-btn-info:hover{color:#fff;background-color:#c27f90;border-color:#c27f90}
+
+.a.a {
+    color: #c27f90;
+  }
+
+
+  .pagination.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #c27f90;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+
+.text-info-pi, .text-info:hover {
+    color: #3091B2;
+}
+  
+.text-success-pi, .text-success:hover {
+    color: #42A084;
+}
+  
+.text-warning-pi, .text-warning:hover {
+    color: #BB992F;
+}
+  
+.text-danger-pi, .text-danger:hover {
+    color: #bf032a;
+}
+
+
+/*  Cores do gráfico de Pizza de a á e de acordo com a ordem que as informações são populadas.  */
+.text-slice-pi-e, .text-danger:hover {
+    color: #7A9E9F;
+}
+.text-slice-pi-d, .text-danger:hover {
+    color: #7AC29A;
+}
+.text-slice-pi-c, .text-danger:hover {
+    color: #DD0330;
+}
+.text-slice-pi-b, .text-danger:hover {
+    color: #F3BB45;
+}
+.text-slice-pi-a, .text-danger:hover {
+    color: #68B3C8;
+}

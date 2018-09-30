@@ -1,0 +1,19 @@
+<div class="sidebar-wrapper">
+  <div class="logo">
+    <a href="/" class="simple-text">
+      <div class="login-logo">
+              <b class="pi-pink">Pi</b>DECOR
+      </div>
+    </a>
+
+  </div>
+  <ul class="nav">
+    <li class="divider"></li>
+    <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+      <a [routerLink]="[menuItem.path]">
+        <i class="{{menuItem.icon}}"></i>
+        <p>{{menuItem.title}}</p>
+      </a>
+    </li>
+  </ul>
+</div>

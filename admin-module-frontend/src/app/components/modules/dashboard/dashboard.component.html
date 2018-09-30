@@ -1,0 +1,99 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6 col-sm-6">
+      <div class="card">
+        <div class="content">
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="icon-big icon-warning text-center">
+                <i class="ti-server"></i>
+              </div>
+            </div>
+            <div class="col-xs-7">
+              <div class="numbers">
+                <p>Clientes Cadastrados</p>
+                {{totalClients}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-6">
+      <div class="card">
+        <div class="content">
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="icon-big icon-success text-center">
+                <i class="ti-wallet"></i>
+              </div>
+            </div>
+            <div class="col-xs-7">
+              <div class="numbers">
+                <p>Lucro do mês</p>
+                R$ {{receivedValueCurentMonth}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+
+    <div class="col-md-6">
+      <div class="card ">
+        <div class="header">
+          <h4 class="title">Evolução mensal</h4>
+          <p class="category">Quantidade de pedidos realizados nos últimos 12 meses</p>
+        </div>
+        <div class="content">
+          <div id="chartActivity" class="ct-chart"></div>
+
+          <div class="footer">
+            <div class="chart-legend">
+              <i class="fa fa-circle text-info"></i> Pedidos criados
+            </div>
+            <hr>
+            <div class="stats">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="header">
+          <h4 class="title">Status dos pedidos</h4>
+          <p class="category">Status de entrega dos pedidos</p>
+        </div>
+        <div class="content">
+          <div id="chartorderStatus" class="ct-chart"></div>
+          <div class="footer">
+            <div class="chart-legend">
+              <span *ngFor="let legend of statusChartLegend">
+                <i class="{{legend.class}}"></i> {{legend.title}}
+              </span>
+            </div>
+            <hr>
+            <div class="stats">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="header">
+          <h4 class="title">Valor recebido dos fornecedores</h4>
+          <p class="category">Evolução da porcentagem recebida pelos fornecedores nos últimos 12 meses</p>
+        </div>
+        <div class="content">
+          <div id="getReceivedValueByMonth" class="ct-chart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
