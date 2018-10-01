@@ -41,9 +41,8 @@ services:
       - backend
   web:
     image: aliniribeiroo/admin-module-frontend:latest
-    build: '.'
     ports:
-      - "5000:5000"
+      - "4200:4200"
     networks:
       - backend
 volumes:
