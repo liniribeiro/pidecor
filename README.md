@@ -32,7 +32,7 @@ O escopo escolhido para o TCC foi o de Sistema de controle de vendas com a modal
 3. A aplicação estará disponível na URL: http://localhost:4200/
 4. Para o primeiro acesso ao sistema,o usuário de Administrador do sistema já é criado:
   * Usuário: admin@pidecor.com.br
-  * Senha: 123
+  * Senha: 123456
 
 ## Projetos do repositório
 * admin-module-backend: É o projeto em backend que contém todas as API's utilizadas na aplicação.
