@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:10.4
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgreSQL
+    restart: always
+    environment:
+      POSTGRES_ROOT_PASSWORD: postgres
+      POSTGRES_DB: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - backend
+
+  providers-mock:
+    image: aliniribeiroo/providers-mock:latest
+    ports:
+      - "8081:8081"
+    restart: always
+    networks:
+      - backend
+
+  pi-docker-postgres:
+    depends_on:
+      - db
+      - providers-mock
+    image: aliniribeiroo/pidecor-admin:latest
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      PI_DB_HOST: jdbc:postgresql://db:5432/db
+      PI_DB_USER: postgres
+      PI_DB_PASSWORD: postgres
+      PROVIDERS_APP_NAME: providers-mock
+    networks:
+      - backend
+  web:
+    image: aliniribeiroo/admin-module-frontend:latest
+    build: '.'
+    ports:
+      - "5000:5000"
+    networks:
+      - backend
+volumes:
+  db_data:
+
+### Networks Setup ############################################
+networks:
+  backend:
+    driver: "bridge"

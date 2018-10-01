@@ -1,15 +1,20 @@
 package com.aliniribeiro.admin.api.controller.provider.client;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 import providers.wsdl.*;
 
 public class ProvidersClient extends WebServiceGatewaySupport {
 
+    @Value("${providersapp.name}")
+    private String PROVIDERS_APP_NAME;
+
+    private final String PROVIDER_HTTP = "http://%s:8081/ws/providers";
     private final String PROVIDERS_API_LINK_ID = "66155469879546670340";
     private final String PROVIDERS_API_LINK_NAME = "PIDECOR";
     private final String CALL_BACK = "http://spring.io/guides/gs-producing-web-service/";
-    private final String PROVIDER_HTTP = "http://localhost:8081/ws/providers";
+
 
     public GetProvidersByIdResponse getProviderById(String id) {
         GetProvidersByIdRequest request = new GetProvidersByIdRequest();
@@ -22,9 +27,10 @@ public class ProvidersClient extends WebServiceGatewaySupport {
     }
 
     public GetAllProvidersResponse getAllproviders() {
+        System.out.println("URL da API de fornecedores que está sendo chamada: "+ getProvidersAppHTTP());
         GetAllProvidersRequest request = new GetAllProvidersRequest();
         GetAllProvidersResponse response = (GetAllProvidersResponse) getWebServiceTemplate()
-                .marshalSendAndReceive(PROVIDER_HTTP, request,
+                .marshalSendAndReceive(getProvidersAppHTTP(), request,
                         new SoapActionCallback(CALL_BACK + "getAllProvidersRequest"));
         return response;
     }
@@ -33,7 +39,7 @@ public class ProvidersClient extends WebServiceGatewaySupport {
         GetMyProvidersRequest request = new GetMyProvidersRequest();
         request.setCompanyId(PROVIDERS_API_LINK_ID);
         GetMyProvidersResponse response = (GetMyProvidersResponse) getWebServiceTemplate()
-                .marshalSendAndReceive(PROVIDER_HTTP, request,
+                .marshalSendAndReceive(getProvidersAppHTTP(), request,
                         new SoapActionCallback(CALL_BACK + "getMyProvidersRequest"));
         return response;
     }
@@ -43,7 +49,7 @@ public class ProvidersClient extends WebServiceGatewaySupport {
         request.setCompanyId(PROVIDERS_API_LINK_ID);
         request.setCompanyname(PROVIDERS_API_LINK_NAME);
         request.setId(providerId);
-        ActivateProviderResponse response = (ActivateProviderResponse) getWebServiceTemplate().marshalSendAndReceive(PROVIDER_HTTP, request,
+        ActivateProviderResponse response = (ActivateProviderResponse) getWebServiceTemplate().marshalSendAndReceive(getProvidersAppHTTP(), request,
                         new SoapActionCallback(CALL_BACK + "activateProviderRequest"));
         return response;
     }
@@ -53,7 +59,7 @@ public class ProvidersClient extends WebServiceGatewaySupport {
         request.setCompanyId(PROVIDERS_API_LINK_ID);
         request.setCompanyname(PROVIDERS_API_LINK_NAME);
         request.setId(providerId);
-        DisableProviderResponse response = (DisableProviderResponse) getWebServiceTemplate().marshalSendAndReceive(PROVIDER_HTTP, request,
+        DisableProviderResponse response = (DisableProviderResponse) getWebServiceTemplate().marshalSendAndReceive(getProvidersAppHTTP(), request,
                 new SoapActionCallback(CALL_BACK + "disableProviderRequest"));
         return response;
     }
@@ -62,7 +68,7 @@ public class ProvidersClient extends WebServiceGatewaySupport {
     public GetAllItemsResponse getAllItems(String providerId){
         GetAllItemsRequest request = new GetAllItemsRequest();
         request.setId(providerId);
-        GetAllItemsResponse response = (GetAllItemsResponse) getWebServiceTemplate().marshalSendAndReceive(PROVIDER_HTTP, request,
+        GetAllItemsResponse response = (GetAllItemsResponse) getWebServiceTemplate().marshalSendAndReceive(getProvidersAppHTTP(), request,
                 new SoapActionCallback(CALL_BACK + "getAllItemsRequest"));
         return response;
     }
@@ -70,7 +76,7 @@ public class ProvidersClient extends WebServiceGatewaySupport {
     public GetItemsByIdResponse getItemsById(String itemId){
         GetItemsByIdRequest request = new GetItemsByIdRequest();
         request.setId(itemId);
-        GetItemsByIdResponse response = (GetItemsByIdResponse) getWebServiceTemplate().marshalSendAndReceive(PROVIDER_HTTP, request,
+        GetItemsByIdResponse response = (GetItemsByIdResponse) getWebServiceTemplate().marshalSendAndReceive(getProvidersAppHTTP(), request,
                 new SoapActionCallback(CALL_BACK + "getItemsByIdRequest"));
         return response;
     }
@@ -78,7 +84,7 @@ public class ProvidersClient extends WebServiceGatewaySupport {
     public CreateOrderResponse createOrder(Order order){
         CreateOrderRequest request = new CreateOrderRequest();
         request.setOrder(order);
-        CreateOrderResponse response = (CreateOrderResponse) getWebServiceTemplate().marshalSendAndReceive(PROVIDER_HTTP, request,
+        CreateOrderResponse response = (CreateOrderResponse) getWebServiceTemplate().marshalSendAndReceive(getProvidersAppHTTP(), request,
                 new SoapActionCallback(CALL_BACK + "createOrderRequest"));
         return response;
     }
@@ -86,8 +92,12 @@ public class ProvidersClient extends WebServiceGatewaySupport {
     public GetOrderStatusResponse getOrderStatus(String orderId){
         GetOrderStatusRequest request = new GetOrderStatusRequest();
         request.setId(orderId);
-        GetOrderStatusResponse response = (GetOrderStatusResponse) getWebServiceTemplate().marshalSendAndReceive(PROVIDER_HTTP, request,
+        GetOrderStatusResponse response = (GetOrderStatusResponse) getWebServiceTemplate().marshalSendAndReceive(getProvidersAppHTTP(), request,
                 new SoapActionCallback(CALL_BACK + "getOrderStatusRequest"));
         return response;
+    }
+
+    private String getProvidersAppHTTP(){
+        return String.format(PROVIDER_HTTP, PROVIDERS_APP_NAME);
     }
 }
