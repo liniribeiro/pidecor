@@ -27,10 +27,10 @@ O escopo escolhido para o TCC foi o de Sistema de controle de vendas com a modal
 
 ## Executando a aplicação
 
-1. [Docker](https://www.docker.com/) Pré-requisito
+1. Como pré-requisito, possuir [docker](https://www.docker.com/).
 2. Baixar o arquico docker-compose.yml deste repositório e executar o comando: docker-compose up
 3. A aplicação estará disponível na URL: http://localhost:4200/
-4. Para o primeiro acesso ao sistema,o usuário de Administrador do sistema já é criado:
+4. Para o primeiro acesso ao sistema, o usuário de Administrador do sistema já é criado:
   * Usuário: admin@pidecor.com.br
   * Senha: 123456
 
