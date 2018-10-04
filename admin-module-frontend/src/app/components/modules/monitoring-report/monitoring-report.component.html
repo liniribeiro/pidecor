@@ -1,26 +1,25 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12 col-md-6 col sm-4">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <div>
                 </div>
                 <div class="content">
                     <form #form="ngForm" novalidate>
                         <div class="row">
-
-                            <div class="col-md-2">
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
                                 <div class="form-group">
                                     <label>Data de início:</label>
                                     <input [(ngModel)]="startDate" type="month" name="initmonth" class="form-control border-input" (ngModelChange)="callDataTables()">
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
                                 <div class="form-group">
                                     <label>Data de Fim:</label>
                                     <input [(ngModel)]="endDate" type="month" name="endmonth" class="form-control border-input" (ngModelChange)="callDataTables()">
                                 </div>
                             </div>
-                            <div class="col-md-2 center">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
                                 <div class="form-group">
                                     <label>Tabela</label>
                                     <select [(ngModel)]="selectedTable" class="selectpicker form-control border-input" data-style="select-with-transition" title="Single Select"
@@ -30,7 +29,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
                                 <div class="form-group">
                                      <br><br>
                                     <a class='icon-warning' (click)="returnPDF()">

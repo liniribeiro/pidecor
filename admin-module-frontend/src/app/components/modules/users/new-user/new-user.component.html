@@ -1,9 +1,14 @@
 <div class="card">
     <div class="header">
-        <h4 class="title">Novo usuário</h4>
+        <div>
+            <div class="nav navbar-nav navbar-left">
+                <h4 class="title">Novo usuário</h4>
+            </div>
+        </div>
+        <hr />
     </div>
-    <hr>
-    <div>
+    <div class="footer">
+        <hr />
     </div>
     <div class="content">
         <form #form="ngForm" (ngSubmit)="register()" novalidate>

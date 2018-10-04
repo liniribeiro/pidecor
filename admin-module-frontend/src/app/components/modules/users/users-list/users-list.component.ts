@@ -46,10 +46,7 @@ export class UsersListComponent implements OnInit {
     this.userService.findAll().subscribe((responseApi: ResponseApi) => {
       this.listUser = responseApi.data;
     }, err => {
-      this.showMessage({
-        type: 'error',
-        text: err['error']['errors'][0]
-      });
+     
     });
   }
 

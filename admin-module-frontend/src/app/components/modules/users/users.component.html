@@ -1,59 +1,10 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-3 col-sm-3">
-            <div class="card">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-xs-5">
-                            <div class="icon-big icon-warning text-center">
-                                <i class="ti-server"></i>
-                            </div>
-                        </div>
-                        <div class="col-xs-7">
-                            <div class="numbers">
-                                <p>Novo</p>
-                                <a class='icon-warning' [routerLink]="[ 'new' ]" routerLinkActive="active">
-                                    USUÁRIO
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <hr />
-                        <div class="stats">
-                       
-                        </div>
-                      </div>
-                </div>
-            </div>
+            <div class="col-xl-6 col-lg-6  col-md-6 col-sm-12 col-12">
+            <app-new-user></app-new-user>
         </div>
-        <div class="col-lg-3 col-sm-3">
-            <div class="card">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-xs-5">
-                            <div class="icon-big icon-info text-center">
-                                <i class="ti ti-user"></i>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="numbers">
-                                <p>Usuários</p>
-                                <a class='icon-info' [routerLink]="[ 'list' ]" routerLinkActive="active">
-                                    + {{totalUsers}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <hr />
-                        <div class="stats">
-            
-                        </div>
-                      </div>
-                </div>
-            </div>
+         <div class="col-xl-12 col-lg-12  col-md-12 col-sm-12 col-12">
+            <app-users-list></app-users-list>
         </div>
     </div>
 </div>
-<router-outlet></router-outlet>

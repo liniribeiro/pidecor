@@ -1,26 +1,30 @@
 <div class="card">
-  <div class="header">
-    <div>
-      <div class="nav navbar-nav navbar-left">
-        <h4 class="title">Usuários</h4>
+  <div class="content">
+    <div class="row">
+        <div class="header">
+          <div>
+            <div class="nav navbar-nav navbar-left">
+              <h4 class="title">Usuários cadastrados</h4>
+            </div>
+          </div>
+          <div class="content ">
+            <hr>
+            <table class="table table-striped table-responsive">
+              <thead>
+                <tr>
+                  <th *ngFor="let cell of getTableOfUsers().headerRow">{{ cell }}</th>
+                  <th> </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let row of getTableOfUsers().dataRows">
+                  <td *ngFor="let cell of row">{{cell}}</td>
+                  <td><button class="btn btn-sm btn-success btn-icon" (click)="deleteUser(row)"><i class="fa fa-trash"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="content table-responsive table-full-width">
-      <hr>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th *ngFor="let cell of getTableOfUsers().headerRow">{{ cell }}</th>
-            <th> </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let row of getTableOfUsers().dataRows">
-            <td *ngFor="let cell of row">{{cell}}</td>
-            <td><button class="btn btn-sm btn-success btn-icon" (click)="deleteUser(row)"><i class="fa fa-trash"></i></button></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
-</div>

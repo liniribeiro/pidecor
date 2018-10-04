@@ -50,6 +50,7 @@ export class ProvidersDetailComponent implements OnInit, OnDestroy  {
 
   disableProvider(){
     this.providerService.disableProvider(this.currentProvider.id).subscribe((responseApi: ResponseApi) => {
+      window.location.reload();
       this.router.navigate(['/providers/list']);
       //Toast Sucesso
     }, err => {

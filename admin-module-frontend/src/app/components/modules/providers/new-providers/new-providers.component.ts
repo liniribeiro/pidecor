@@ -51,6 +51,7 @@ export class NewProvidersComponent implements OnInit {
   saveProvider() {
       this.providerService.activateProvider(this.currentProvider).subscribe((responseApi: ResponseApi) => {
         this.showSuccess();
+        window.location.reload();
         this.router.navigate(['/providers/list']);
       }, err => {
         this.showError();

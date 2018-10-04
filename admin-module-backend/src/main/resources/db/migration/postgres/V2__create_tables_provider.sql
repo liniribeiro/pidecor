@@ -20,7 +20,8 @@ CREATE TABLE PROVIDER (
     percentage DECIMAL(12,4),
     delivery_days integer,
     rejection_rate DECIMAL(12,4),
-    qtd_items_sold integer
+    qtd_items_sold integer,
+    activateddate DATE
 );
 
 CREATE TABLE customer (
@@ -37,6 +38,10 @@ CREATE TABLE customer_order (
 	id UUID NOT NULL PRIMARY KEY,
 	customer UUID,
 	status VARCHAR(255) NOT NULL,
+	delivery_address VARCHAR(255),
+	delivery_receiver_name VARCHAR(255),
+	creationdate DATE,
+	providers_api_id VARCHAR(255),
 	CONSTRAINT customer_order_client_FKEY FOREIGN KEY (customer) REFERENCES customer (ID)
 );
 
