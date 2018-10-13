@@ -38,3 +38,6 @@ O escopo escolhido para o TCC foi o de Sistema de controle de vendas com a modal
 * admin-module-backend: É o projeto em backend que contém todas as API's utilizadas na aplicação.
 * providers-mock: É a mock de um sistema de terceiros que se comunica via protocolo SOAP. A aplicação tem uma forte integração com este projeto.
 * admin-module-frontend: Projeto frontend da aplicação.
+
+## Vídeo com o projeto em execução
+https://www.youtube.com/watch?v=Hv1tI7ID35c&t=18s
